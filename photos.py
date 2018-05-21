@@ -17,12 +17,12 @@ image_data = {
 	'imgtype': 'png'
 }
 
-result = images.insert_one(image_data)
+result = images[image_data[ownerid]].insert_one(image_data)
 print('One image: {0}'.format(result.inserted_id))
 
 @route("/i/<uid>/<img>")
 def returnImage(uid, img):
-	image_result = images.find_one({'ownerid': uid, 'imgid': img})
+	image_result = images[uid].find_one({'ownerid': uid, 'imgid': img})
 	return str(image_result)
 
 
