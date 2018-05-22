@@ -16,7 +16,7 @@ image_data = {
 	'imgtype': 'png'
 }
 
-result = images[image_data[ownerid]].insert_one(image_data)
+result = images[image_data.ownerid].insert_one(image_data)
 print('One image: {0}'.format(result.inserted_id))
 
 @route("/i/<uid>/<img>")
